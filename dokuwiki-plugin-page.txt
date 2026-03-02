@@ -1,0 +1,93 @@
+---- plugin ----
+description: Manage Digital Ocean droplet snapshots directly from wiki pages. Create, list, restore, and delete snapshots. Includes droplet info panel, metrics graphs (CPU, memory, bandwidth, load average, disk usage), power controls (on/off/reboot), and a direct link to the DO web console.
+author     : Claude (Anthropic)
+email      : plugins@example.com
+type       : syntax, action, helper
+lastupdate : 2026-02-19
+compatible : greebo, hogfather, igor, jack, kaos
+depends    :
+conflicts  :
+similar    :
+tags       : digitalocean, cloud, snapshot, server, management, monitoring, metrics, infrastructure
+
+downloadurl: https://github.com/youruser/dokuwiki-plugin-dosnapshots/releases/latest/download/dosnapshots-plugin.zip
+bugtracker : https://github.com/youruser/dokuwiki-plugin-dosnapshots/issues
+sourcerepo : https://github.com/youruser/dokuwiki-plugin-dosnapshots
+donationurl:
+----
+
+===== Digital Ocean Snapshot Manager =====
+
+Manage Digital Ocean droplet snapshots directly from your DokuWiki pages. View droplet status, create/delete/restore snapshots, monitor live performance metrics, and control droplet power state — all without leaving the wiki.
+
+==== Features ====
+
+  * **Droplet Info Panel** — Name, status, IP, region, size, image, and creation date
+  * **Snapshot Management** — List, create, delete, and restore snapshots with confirmation dialogs
+  * **Metrics Graphs** — Collapsible sparkline charts (CPU, Memory, Bandwidth, Load Average, Disk Usage) with selectable timeframes (6h / 24h / 7d / 14d). Charts are lazy-loaded on expand.
+  * **Power Controls** — Power on, power off, reboot, and direct link to DO web console
+  * **Permission System** — Configurable minimum auth level (admin / manager / user)
+  * **Safety Guards** — Restore and delete can be independently toggled; confirmation dialogs on destructive actions
+  * **CSRF Protection** — All AJAX calls validated with DokuWiki security tokens
+  * **Localization Ready** — Full English language file; add your own translations easily
+  * **XSS Protected** — All dynamic content escaped in both PHP and JavaScript
+  * **Zero External Dependencies** — Charts rendered with HTML5 Canvas
+
+==== Requirements ====
+
+  * DokuWiki Greebo or later
+  * PHP 7.0+ with cURL extension
+  * Digital Ocean API token with read/write scope
+  * DO Metrics Agent (optional) — needed for memory, load average, and disk usage graphs
+
+==== Installation ====
+
+Install using the DokuWiki Extension Manager. Search for **dosnapshots** or paste the download URL.
+
+For manual installation, download the zip file and extract the ''dosnapshots'' folder into ''lib/plugins/''.
+
+==== Configuration ====
+
+Navigate to **Admin → Configuration Settings** and search for ''dosnapshots''.
+
+^ Setting ^ Description ^ Default ^
+| ''api_token'' | Digital Ocean Personal Access Token | //empty// |
+| ''default_droplet_id'' | Fallback droplet ID when none specified in syntax | //empty// |
+| ''allow_restore'' | Enable Restore button (rebuilds droplet!) | Off |
+| ''allow_delete'' | Enable Delete button for snapshots | On |
+| ''snapshot_prefix'' | Prefix for auto-generated snapshot names | ''wiki-snap-'' |
+| ''min_auth_level'' | Minimum auth level: admin, manager, or user | admin |
+
+==== Syntax ====
+
+Embed the snapshot manager for a specific droplet:
+
+  {{dosnapshots>12345678}}
+
+Use the default droplet (configured in admin settings):
+
+  {{dosnapshots}}
+
+Multiple droplets on the same page:
+
+  {{dosnapshots>11111111}}
+  {{dosnapshots>22222222}}
+
+==== Security Notes ====
+
+  * API token stored using DokuWiki's password config type
+  * CSRF tokens validated on every AJAX request
+  * Droplet/snapshot IDs validated as numeric only
+  * Snapshot names sanitized to alphanumeric, dashes, underscores, and dots
+  * All rendered strings HTML-escaped in PHP (''hsc()'') and JavaScript
+  * JSON embedded in HTML attributes uses ''JSON_HEX_*'' flags
+
+==== Localization ====
+
+To add a new language, create ''lang/<code>/lang.php'' and ''lang/<code>/settings.php'' using the English files in ''lang/en/'' as templates.
+
+==== Changelog ====
+
+See [[https://github.com/youruser/dokuwiki-plugin-dosnapshots/blob/main/CHANGELOG.md|CHANGELOG.md]] for full version history.
+
+{{tag>digitalocean cloud snapshot server management monitoring}}

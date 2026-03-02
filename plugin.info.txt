@@ -1,0 +1,7 @@
+base   dosnapshots
+author Claude (Anthropic)
+email  plugins@example.com
+date   2026-02-19
+name   Digital Ocean Snapshot Manager
+desc   Manage Digital Ocean droplet snapshots directly from wiki pages. Create, list, restore, and delete snapshots.
+url    https://www.dokuwiki.org/plugin:dosnapshots

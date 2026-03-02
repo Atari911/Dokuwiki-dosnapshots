@@ -1,0 +1,459 @@
+/**
+ * Styles for dosnapshots plugin
+ * Version: 1.4.0
+ */
+
+.dosnapshots-container {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1em;
+    margin: 1em 0;
+    background: #fafafa;
+    font-family: inherit;
+}
+
+.dosnapshots-loading {
+    text-align: center;
+    padding: 2em;
+    color: #666;
+    font-style: italic;
+}
+
+/* Header */
+.dosnapshots-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #28a745;
+}
+
+.dosnapshots-header h3 {
+    margin: 0;
+    color: #28a745;
+    font-size: 1.3em;
+}
+
+.dosnapshots-version {
+    font-size: 0.75em;
+    color: #999;
+    margin-left: 0.5em;
+}
+
+.dosnapshots-header-actions {
+    display: flex;
+    gap: 0.5em;
+}
+
+/* Messages */
+.dosnapshots-msg {
+    padding: 0.6em 1em;
+    border-radius: 3px;
+    margin-bottom: 1em;
+    font-size: 0.9em;
+}
+
+.dosnapshots-msg-success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.dosnapshots-msg-error {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.dosnapshots-msg-info {
+    background: #d1ecf1;
+    border: 1px solid #bee5eb;
+    color: #0c5460;
+}
+
+.dosnapshots-error {
+    padding: 1em;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    border-radius: 4px;
+    margin: 1em 0;
+}
+
+/* Droplet Info */
+.dosnapshots-droplet-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.5em;
+    margin-bottom: 1.5em;
+    padding: 1em;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.dosnapshots-droplet-info dt {
+    font-weight: bold;
+    font-size: 0.85em;
+    color: #555;
+    margin: 0;
+}
+
+.dosnapshots-droplet-info dd {
+    margin: 0 0 0.5em 0;
+    font-size: 0.95em;
+}
+
+/* Status badges */
+.dosnapshots-status {
+    display: inline-block;
+    padding: 0.15em 0.5em;
+    border-radius: 3px;
+    font-size: 0.85em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.dosnapshots-status-active {
+    background: #d4edda;
+    color: #155724;
+}
+
+.dosnapshots-status-off {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.dosnapshots-status-new,
+.dosnapshots-status-archive {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* Snapshot table */
+.dosnapshots-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 1em;
+}
+
+.dosnapshots-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+.dosnapshots-table th,
+.dosnapshots-table td {
+    padding: 0.5em 0.75em;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.dosnapshots-table th {
+    background: #f0f0f0;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.dosnapshots-table tr:hover {
+    background: #f5f8ff;
+}
+
+.dosnapshots-table .dosnapshots-actions-cell {
+    white-space: nowrap;
+}
+
+/* Buttons */
+.dosnapshots-btn {
+    display: inline-block;
+    padding: 0.35em 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #fff;
+    color: #333;
+    font-size: 0.85em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.dosnapshots-btn:hover {
+    background: #f0f0f0;
+    border-color: #999;
+}
+
+.dosnapshots-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dosnapshots-btn-primary {
+    background: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+.dosnapshots-btn-primary:hover {
+    background: #218838;
+    border-color: #1e7e34;
+}
+
+.dosnapshots-btn-danger {
+    background: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+.dosnapshots-btn-danger:hover {
+    background: #c82333;
+    border-color: #bd2130;
+}
+
+.dosnapshots-btn-warning {
+    background: #ffc107;
+    border-color: #ffc107;
+    color: #333;
+}
+
+.dosnapshots-btn-warning:hover {
+    background: #e0a800;
+    border-color: #d39e00;
+}
+
+.dosnapshots-btn-sm {
+    padding: 0.2em 0.5em;
+    font-size: 0.8em;
+}
+
+/* Create snapshot form */
+.dosnapshots-create-form {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    margin-bottom: 1em;
+    padding: 0.75em;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.dosnapshots-create-form label {
+    font-weight: bold;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+.dosnapshots-create-form input[type="text"] {
+    flex: 1;
+    padding: 0.35em 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 0.9em;
+    min-width: 150px;
+}
+
+/* Spinner */
+.dosnapshots-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-top-color: #28a745;
+    border-radius: 50%;
+    animation: dosnapshots-spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin-right: 0.5em;
+}
+
+@keyframes dosnapshots-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Power controls */
+.dosnapshots-power-controls {
+    display: flex;
+    gap: 0.5em;
+    margin-bottom: 1em;
+}
+
+/* Footer */
+.dosnapshots-footer {
+    text-align: right;
+    font-size: 0.75em;
+    color: #aaa;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    border-top: 1px solid #eee;
+}
+
+/* ===== Metrics / Graphs ===== */
+.dosnapshots-metrics-section {
+    margin-top: 1.5em;
+    padding-top: 1em;
+    border-top: 2px solid #28a745;
+}
+
+.dosnapshots-metrics-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    cursor: pointer;
+    padding: 0.5em 0.75em;
+    margin-bottom: 0.5em;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #28a745;
+    user-select: none;
+    transition: background 0.15s;
+}
+
+.dosnapshots-metrics-toggle:hover {
+    background: #eafbef;
+    border-color: #28a745;
+}
+
+.dosnapshots-metrics-toggle-icon {
+    font-size: 0.7em;
+    line-height: 1;
+    transition: transform 0.2s;
+}
+
+.dosnapshots-metrics-toggle-label {
+    font-size: 0.9em;
+}
+
+.dosnapshots-metrics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.dosnapshots-metrics-header h4 {
+    margin: 0;
+    color: #28a745;
+    font-size: 1.1em;
+}
+
+.dosnapshots-metrics-timeframe {
+    display: flex;
+    gap: 0.25em;
+}
+
+.dosnapshots-metrics-timeframe button {
+    padding: 0.2em 0.6em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #fff;
+    color: #555;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.dosnapshots-metrics-timeframe button:hover {
+    background: #f0f0f0;
+    border-color: #999;
+}
+
+.dosnapshots-metrics-timeframe button.active {
+    background: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+.dosnapshots-metrics-note {
+    font-size: 0.75em;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 1em;
+}
+
+.dosnapshots-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1em;
+}
+
+.dosnapshots-metric-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 0.75em;
+    min-height: 140px;
+}
+
+.dosnapshots-metric-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+
+.dosnapshots-metric-title {
+    font-weight: bold;
+    font-size: 0.85em;
+    color: #333;
+}
+
+.dosnapshots-metric-value {
+    font-size: 0.85em;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.dosnapshots-metric-canvas-wrap {
+    position: relative;
+    width: 100%;
+    height: 80px;
+}
+
+.dosnapshots-metric-canvas-wrap canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.dosnapshots-metric-legend {
+    display: flex;
+    gap: 1em;
+    margin-top: 0.3em;
+    font-size: 0.7em;
+    color: #666;
+}
+
+.dosnapshots-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.dosnapshots-legend-swatch {
+    display: inline-block;
+    width: 10px;
+    height: 3px;
+    border-radius: 1px;
+}
+
+.dosnapshots-metric-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    color: #aaa;
+    font-size: 0.8em;
+}
+
+.dosnapshots-metric-nodata {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    color: #bbb;
+    font-size: 0.8em;
+    font-style: italic;
+}
